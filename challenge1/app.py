@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import socket
+
 from datetime import datetime
 
 app = Flask(__name__)
@@ -9,7 +10,7 @@ def home():
     data = {
         "name": "Your Name",
         "project_name": "Your Project Name",
-        "version": "V1",
+        "version": "V2",
         "hostname": request.host_url,
         "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     }
