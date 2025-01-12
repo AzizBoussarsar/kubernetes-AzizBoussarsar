@@ -8,8 +8,8 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     data = {
-        "name": "Your Name",
-        "project_name": "Your Project Name",
+        "name": "Aziz Boussarsar",
+        "project_name": "Flask App without DB",
         "version": "V1",
         "hostname": request.host_url,
         "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
