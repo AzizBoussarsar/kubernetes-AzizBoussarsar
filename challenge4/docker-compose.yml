@@ -19,6 +19,8 @@ services:
       - "5002:5000"
     depends_on:
       - mongo
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/
     networks:
       - app_network
 

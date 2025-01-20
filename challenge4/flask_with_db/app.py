@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request
 from pymongo import MongoClient
 from datetime import datetime
@@ -5,10 +6,23 @@ from datetime import datetime
 app = Flask(__name__)
 
 # MongoDB Configuration
-MONGO_URI = "mongodb://mongo:27017/"  # MongoDB container hostname
-client = MongoClient(MONGO_URI)
-db = client["my_database"]
-collection = db["requests"]
+# MONGO_URI = "mongodb://mongo:27017/"  # MongoDB container hostname
+# client = MongoClient(MONGO_URI)
+# db = client["my_database"]
+# collection = db["requests"]
+
+# MongoDB configuration using environment variables
+mongo_url = os.getenv('MONGO_URI', 'mongodb://localhost:27017/')  # Default to localhost for local testing
+client = MongoClient(mongo_url)
+db = client[os.getenv('MONGO_DB_NAME', 'flask_with_db')]  # Default to 'flask_app_db'
+collection = db[os.getenv('MONGO_COLLECTION_NAME', 'requests')]  # Default to 'requests'
+
+# Configuration
+#MONGO_URI = os.getenv("MONGO_URI")
+#client = MongoClient(MONGO_URI)
+#db = client["flask_app_db"]
+#collection = db["requests"]
+
 
 @app.route("/")
 def home():
