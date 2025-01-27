@@ -10,7 +10,7 @@ def home():
     data = {
         "name": "Your Name",
         "project_name": "Your Project Name",
-        "version": "V1",
+        "version": "V3",
         "hostname": request.host_url,
         "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     }

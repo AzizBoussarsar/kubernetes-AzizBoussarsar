@@ -40,7 +40,7 @@ def home():
     data = {
         "name": "Aziz Boussarsar",
         "project_name": "Flask App with DB",
-        "version": "V2",
+        "version": "V3",
         "hostname": request.host_url,
         "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "last_records": last_records,
